@@ -1,5 +1,6 @@
 resource "proxmox_lxc" "container" {
   for_each     = var.containers
+
   vmid         = each.value.vmid
   unprivileged = each.value.unprivileged
 
@@ -7,6 +8,7 @@ resource "proxmox_lxc" "container" {
   target_node = var.proxmox_node
   ostemplate  = each.value.lxc_template
   password    = var.container_password
+  ssh_public_keys = var.ssh_public_key
   cores       = each.value.cores
   memory      = each.value.memory
 

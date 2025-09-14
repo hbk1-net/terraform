@@ -20,6 +20,11 @@ variable "container_password" {
   sensitive   = true
 }
 
+variable "ssh_public_key" {
+  description = "SSH public key to register container."
+  type = string
+}
+
 variable "proxmox_node" {
   description = "Target node to create lxc"
   type        = string
